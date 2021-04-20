@@ -24,19 +24,14 @@ args = []
 # @filename - filename used for redirection
 def do_redirect(filedes, filename):
 	# TODO 3 - Redirect filedes into fd representing filename (Hint: dup2)
-	fd = os.open (filename, os.O_RDWR | os.O_CREAT | os.O_TRUNC, 0o0644)
-	os.dup2 (fd, filedes)
-	os.close (fd)
 	pass
 
 	
 def set_var():
 	# TODO 2 - Set the environment variable
-	os.environ[name] = value
 
 def expand(name):
 	# TODO 2 - Return the value of environment variables
-	return os.getenv (name)
 
 #  @args - array that contains a simple command with parrameters
 def simple_cmd(args):
@@ -51,7 +46,6 @@ def simple_cmd(args):
 		    # redirect standard output if needed */
 			if out_file != None:
 				# print ("out file")
-				do_redirect(STDOUT_FILENO, out_file)
 
 		    # TODO 1 - child process 
 			# please note args is a list of strings:
@@ -59,12 +53,10 @@ def simple_cmd(args):
 			# args[1] - the first parameter
 			# args[2] ....
 			# Hint: use one of the execv... functions (Hint: man exec)
-			os.execvp (args[0], args)
 
 
 		else:
 		    # TODO 1 -  parent process
-			os.waitpid (pid, 0)
 			pass
 
 	except Exception as e:
