@@ -16,10 +16,13 @@ def signal_handler (sig_number, frame):
 		sys.stdout.flush ()
 	elif sig_number == signal.SIGTSTP:
 		sys.stdout.write ("e")
+		sys.stdout.flush ()
 	elif sig_number == signal.SIGTTIN:
 		sys.stdout.write ("l")
+		sys.stdout.flush ()
 	elif sig_number == signal.SIGURG:
 		sys.stdout.write ("o")
+		sys.stdout.flush ()
 	elif sig_number == signal.SIGXCPU:
 		sys.stdout.write ("\n")
 		stop = True
